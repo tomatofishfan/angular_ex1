@@ -20,10 +20,14 @@ export class AppComponent {
   // 清空
   clearInput(input: HTMLInputElement) {
     input.value = '';
-    this.getLength(input.value);
+    // this.getLength(input.value);
+    this.length = 0;
   }
   // 回傳字數
   getLength(value: string) {
     this.length = value.length;
   }
 }
+
+// 可參考他人文章
+// https://dotblogs.com.tw/h20/2018/05/05/075204
