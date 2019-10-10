@@ -178,10 +178,15 @@
         <div class="widget search">
           <div class="widget-content">
             <div id="searchbox">
-              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" (keyup)="getLength($event.target.value)" (keyup.escape)="clearInput($event.target)">
+              <!-- (keyup)="getLength($event.target.value)" 雙向繫結後不再需要 -->
+              <!-- (keyup.escape)="clearInput($event.target)"> 雙向繫結後調整 -->
+              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s"
+              [(ngModel)]="keyword"
+              (keyup.escape)="clearInput()">
               <input type="button" value="搜尋" id="searchbutton">
             </div>
-            <div><p>目前字數: <span>{{length}}</span></p></div>
+            <div><p>目前字數: <span>{{keyword.length}}</span></p></div>
+            <div><p>關鍵字: <span>{{keyword}}</span></p></div>
           </div>
         </div>
         <!-- Search END -->

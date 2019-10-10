@@ -9,7 +9,8 @@ export class AppComponent {
   title = 'app';
   url = 'http://blog.miniasp.com/';
   imgurl = '/assets/images/logo.png';
-  length = 0;
+  // length = 0;
+  keyword = '';
   constructor() {
   }
   changeTitle(altKey: boolean) {
@@ -18,15 +19,17 @@ export class AppComponent {
     }
   }
   // 清空
+  // clearInput(input: HTMLInputElement) {
   clearInput(input: HTMLInputElement) {
-    input.value = '';
+    this.keyword = '';
+    // input.value = '';
     // this.getLength(input.value);
-    this.length = 0;
+    // this.length = 0;
   }
   // 回傳字數
-  getLength(value: string) {
-    this.length = value.length;
-  }
+  // getLength(value: string) {
+  //   this.length = value.length;
+  // }
 }
 
 // 可參考他人文章
