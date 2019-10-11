@@ -12,7 +12,7 @@
     <p>e (4.5-5): {{e | number:'4.5-5'}}</p>
 
     <!--output '0 002,71828'-->
-    <p>e (french): {{e | number:'4.5-5':'fr'}}</p>
+    <!-- <p>e (french): {{e | number:'4.5-5':'fr'}}</p> -->
     <!-- 冒號後面可以設定國際格式 -->
 
     <!--output '3.14'-->
@@ -37,40 +37,8 @@
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
         <!-- Article START-->
-        <!-- ngFor 有提供區域變數 index -->
-        <!-- slice pipe 可用於 array -->
-        <article class="post" id="post{{idx}}" *ngFor="let item of data|slice:3; let idx=index">
-          <header class="post-header">
-            <h2 class="post-title">
-              <!-- href 屬性繫結 -->
-              <!-- 內容 內嵌繫結 -->
-              <!-- <a [href]="item.href">{{item.title|uppercase}}}</a> -->
-              <!-- 1. pipes 方便格式轉換 -->
-              <!-- pipe 之間可以互相串接 -->
-              <a [href]="item.href">{{item.title|lowercase|slice:-20}}</a>
-            </h2>
-            <div class="post-info clearfix">
-              <span class="post-date">
-                <!-- 2. pipes date -->
-                <!-- <i class="glyphicon glyphicon-calendar"></i>{{item.date|date:"yyyy-mm-dd"}}</span> -->
-                <i class="glyphicon glyphicon-calendar"></i>{{item.date|date:"shortDate"}}</span>
-                <span class="post-author">
-                <i class="glyphicon glyphicon-user"></i>
-                <a href="http://blog.miniasp.com/author/will.aspx">{{item.author}}</a>
-              </span>
-              <span class="post-category">
-                <i class="glyphicon glyphicon-folder-close"></i>
-                <!-- 留意 href 取得屬性方式 -->
-                <a [href]="item['category-link']">{{item.category}}</a>
-              </span>
-            </div>
-          </header>
-          <section class="post-body text" [innerHTML]="item.summary">
-            <!-- 用內嵌繫結會直接出現 html tag -->
-            <!-- {{item.summary}} -->
-          </section>
-          <pre>{{item|json}}</pre>
-        </article>
+        <!-- <app-article-list [data]="data"></app-article-list> -->
+        <app-article-list></app-article-list>
         <!-- Article END-->
 
       </div>
